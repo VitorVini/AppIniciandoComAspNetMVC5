@@ -5,3 +5,7 @@
 *.userosscache
 *.sln.docstates
 packages/
+
+# Ignorar arquivos de banco de dados do SQL Server
+AppMvc/App_Data/*.mdf
+AppMvc/App_Data/*.ldf
