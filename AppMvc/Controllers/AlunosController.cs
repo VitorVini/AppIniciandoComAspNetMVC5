@@ -47,6 +47,7 @@ namespace AppMvc.Controllers
                 aluno.DataMatricula = DateTime.Now;
                 db.Alunos.Add(aluno);
                 await db.SaveChangesAsync();
+                TempData["Mensagem"] = "Aluno cadastrado com sucesso!";
                 return RedirectToAction("Index");
             }
 
@@ -62,6 +63,7 @@ namespace AppMvc.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.Mensagem = "Não esqueça de verificar os dados corretamente";
             return View(aluno);
         }
 
