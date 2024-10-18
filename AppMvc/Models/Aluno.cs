@@ -21,6 +21,8 @@ namespace AppMvc.Models
 
         [Required(ErrorMessage = "O campo {0} é requirido")]
         public string CPF { get; set; }
+
+        public string Descricao { get; set; }
         public DateTime DataMatricula { get; set; }
         public bool Ativo { get; set; }
     }

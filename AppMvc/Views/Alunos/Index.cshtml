@@ -1,15 +1,16 @@
 ﻿@model IEnumerable<AppMvc.Models.Aluno>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Gestão de Alunos";
 }
 
-<h2>Index</h2>
+<h2>Gestão de Alunos</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
+<a href="@Url.Action("Create")" class="btn btn-dark">Novo Aluno</a>
+<br />
+<br />
+
+<table class="table table-striped table-hover">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Name)
@@ -21,37 +22,32 @@
             @Html.DisplayNameFor(model => model.CPF)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DataMatricula)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.Ativo)
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CPF)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DataMatricula)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Ativo)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CPF)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ativo)
+            </td>
+            <td>
+                <a href="@Url.Action("Edit", "Alunos", new { id = item.Id })" class="btn btn-warning text-light">Editar</a>
+                <a href="@Url.Action("Details", "Alunos", new { id = item.Id })" class="btn btn-primary">Detalhes</a>
+                <a href="@Url.Action("Delete", "Alunos", new { id = item.Id })" class="btn btn-danger">Excluir</a>
+            </td>
+        </tr>
+    }
 
 </table>
